@@ -22,19 +22,19 @@
 
  <% employees.each do |employee| %>
     <tr>
-      <td><%= employee['first_name'] %></td>
-      <td><%= employee['last_name'] %></td>
-      <td><a href="mailto:<%= employee['email'] %>"><%= employee['email'] %></a></td>
-      <td><%= employee['extension'] %></td>
+      <td><%= h(employee['first_name']) %></td>
+      <td><%= h(employee['last_name']) %></td>
+      <td><a href="mailto:<%= h(employee['email']) %>"><%= h(employee['email']) %></a></td>
+      <td><%= h(employee['extension']) %></td>
       <td>
         <form method="GET">
-          <input type="hidden" name="employee_id" value="<%= employee['employee_id'] %>">
+          <input type="hidden" name="employee_id" value="<%= h(employee['employee_id']) %>">
           <input type="submit" value="Edit" name="edit">
         </form>
       </td>
       <td>
         <form method="POST">
-          <input type="hidden" name="employee_id" value="<%= employee['employee_id'] %>">
+          <input type="hidden" name="employee_id" value="<%= h(employee['employee_id']) %>">
           <input type="submit" value="Delete" name="delete">
         </form>
       </td>
@@ -49,22 +49,22 @@
       <h3> <% employee_to_edit %></h3>
       <div>
         <label for="first_name">First name:</label>
-        <input required type="text" id="first_name" name="first_name" value="<%= employee_to_edit['first_name'] %>">
+        <input required type="text" id="first_name" name="first_name" value="<%= h(employee_to_edit['first_name']) %>">
       </div>
       <div>
         <label for="last_name">Last name:</label>
-        <input required type="text" id="last_name" name="last_name" value="<%= employee_to_edit['last_name'] %>">
+        <input required type="text" id="last_name" name="last_name" value="<%= h(employee_to_edit['last_name']) %>">
       </div>
       <div>
         <label for="email">Email address:</label>
-        <input required type="email" id="email" name="email" value="<%= employee_to_edit['email'] %>">
+        <input required type="email" id="email" name="email" value="<%= h(employee_to_edit['email']) %>">
       </div>
       <div>
         <label for="extension">Extension:</label>
-        <input required type="text" id="extension" name="extension" value="<%= employee_to_edit['extension'] %>">
+        <input required type="text" id="extension" name="extension" value="<%= h(employee_to_edit['extension']) %>">
       </div>
       <div>
-        <input type="hidden" name="employee_id" value="<%= employee_to_edit['employee_id'] %>">
+        <input type="hidden" name="employee_id" value="<%= h(employee_to_edit['employee_id']) %>">
         <input type="submit" name="update" value="Edit employee">
       </div>
     </div>
@@ -107,7 +107,7 @@
   <p>Your entry was invalid due to the following errors:</p>
   <ul>
     <% errors.each do |error| %>
-    <li><%= error %></li>
+    <li><%= h(error) %></li>
     <% end %>
   </ul>
   <% end %>

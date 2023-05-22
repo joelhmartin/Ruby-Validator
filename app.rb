@@ -14,9 +14,14 @@ get '/' do
   end
   # Get the list of employees
   employees = get_full_list()
+
   # Create an ERB renderer with the template
   template = File.read('employees.html.erb')
   renderer = ERB.new(template)
+  # Provide the `h` function to the template to escape HTML
+  renderer.define_singleton_method(:h) do |text|
+    data_filters.h(text)
+  end
 
   # Render the template with the provided data
   result = renderer.result(binding)
