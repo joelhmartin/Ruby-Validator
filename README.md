@@ -5,7 +5,7 @@ A Validation app in Ruby for accessing and displaying database requests
 To run the Ruby Validator App locally, follow these steps:
 
 1. Clone the repository to your local machine.
-git clone https://github.com/your-username/Ruby-Validator.git
+git clone https://github.com/joelhmartin/Ruby-Validator.git
 
 2. Navigate to the project directory.
 cd Ruby-Validator
