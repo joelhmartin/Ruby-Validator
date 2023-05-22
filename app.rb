@@ -63,15 +63,11 @@ post '/' do
     end
 
     redirect '/'
-
+    
   elsif params['delete']
     employee_id = params['employee_id']
     delete_employee(employee_id)
 
     redirect '/'
-
-  else
-    # Handle other actions or render the form again
-    # ...
   end
 end
